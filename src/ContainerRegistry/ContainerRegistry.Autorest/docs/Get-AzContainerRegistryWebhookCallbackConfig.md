@@ -32,7 +32,7 @@ Gets the configuration of service URI and custom headers for the webhook.
 
 ### Example 1: Gets the configuration of service URI and custom headers for the webhook.
 ```powershell
-Get-AzContainerRegistryWebhookCallbackConfig -ResourceGroupName "MyResourceGroup" -RegistryName "RegistryExample" -Name "webhook001"
+Get-AzContainerRegistryWebhookCallbackConfig -ResourceGroupName "MyResourceGroup" -RegistryName "RegistryExample" -WebhookName "webhook001"
 ```
 
 ```output
@@ -46,8 +46,7 @@ Gets the configuration of service URI and custom headers for the webhook.
 ## PARAMETERS
 
 ### -DefaultProfile
-The DefaultProfile parameter is not functional.
-Use the SubscriptionId parameter when available if executing the cmdlet against a different subscription.
+The credentials, account, tenant, and subscription used for communication with Azure.
 
 ```yaml
 Type: System.Management.Automation.PSObject

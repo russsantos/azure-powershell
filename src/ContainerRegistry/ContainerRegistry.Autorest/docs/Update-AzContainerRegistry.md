@@ -52,7 +52,7 @@ Updates a container registry with the specified parameters.
 
 ### Example 1: Enable admin user for a specified container registry
 ```powershell
-Update-AzContainerRegistry -ResourceGroupName "MyResourceGroup" -Name "RegistryExample" -AdminUserEnabled
+Update-AzContainerRegistry -ResourceGroupName "MyResourceGroup" -Name "RegistryExample" -EnableAdminUser
 ```
 
 ```output
@@ -126,8 +126,7 @@ Accept wildcard characters: False
 ```
 
 ### -DefaultProfile
-The DefaultProfile parameter is not functional.
-Use the SubscriptionId parameter when available if executing the cmdlet against a different subscription.
+The credentials, account, tenant, and subscription used for communication with Azure.
 
 ```yaml
 Type: System.Management.Automation.PSObject

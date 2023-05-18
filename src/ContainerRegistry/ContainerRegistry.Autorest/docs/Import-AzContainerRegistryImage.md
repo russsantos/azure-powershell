@@ -40,10 +40,10 @@ Import-AzContainerRegistryImage -SourceImage library/busybox:latest -ResourceGro
 
 Import busybox to ACR.
 Note:
-
 "library/" need to be add before source image.
 "busybox:latest" =\> "library/busybox:latest"
 Credential needed if source registry is not publicly available
+SourceRegistryResourceId or SourceRegistryUri is required for this cmdlet
 
 ## PARAMETERS
 
@@ -63,8 +63,7 @@ Accept wildcard characters: False
 ```
 
 ### -DefaultProfile
-The DefaultProfile parameter is not functional.
-Use the SubscriptionId parameter when available if executing the cmdlet against a different subscription.
+The credentials, account, tenant, and subscription used for communication with Azure.
 
 ```yaml
 Type: System.Management.Automation.PSObject
