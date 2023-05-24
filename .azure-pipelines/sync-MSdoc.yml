@@ -38,7 +38,7 @@ jobs:
   - pwsh: |
       $Title = "Sync upcoming breaking changes docs from Azure/azure-powershell repo"
       $HeadBranch = "$(BranchName)"
-      $BaseBranch = "main"
+      $BaseBranch = "nori/pipline-test"
       $Description = "Sync latest upcoming breaking changes doc from Azure/azure-powershell repo."
       $Headers = @{"Accept" = "application/vnd.github+json"; "Authorization" = "Bearer $(GithubToken)"}
       $PrBody = @"
