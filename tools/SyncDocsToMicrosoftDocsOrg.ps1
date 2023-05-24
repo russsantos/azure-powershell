@@ -32,8 +32,8 @@ $SyncFile = Split-Path $SyncPath -Leaf
 # git config user.email "65331932+azure-powershell-bot@users.noreply.github.com"
 # git config user.name "azure-powershell-bot"
 
-git config user.email "norizhang@microsoft.com"
-git config user.name "NoriZC"
+git config --global user.email "norizhang@microsoft.com"
+git config --global user.name "NoriZC"
 
 cd $WorkSpace
 git clone $RepoCloneLink
