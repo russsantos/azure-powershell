@@ -1,3 +1,28 @@
+
+
+function Show-Result
+{
+    param(
+        [string]$Result
+    )
+    $lines = $Result -split "`n"
+
+    $insideCodeBlock = $false
+    
+    foreach ($line in $lines) {
+        if ($line.StartsWith("``````")) {
+            $insideCodeBlock = -not $insideCodeBlock
+            Write-Host $line -ForegroundColor Green
+        }
+        else {
+            if ($insideCodeBlock) {
+                Write-Host $line -ForegroundColor Green
+            } else {
+                Write-Host $line
+            }
+        }
+    }
+}
 function Resolve-AzErrorDemo
 {
     param(
@@ -35,5 +60,5 @@ function Resolve-AzErrorDemo
         }
     }
     $Response = Invoke-WebRequest -Uri $BaseUrl -Method Post -Body ($Body | ConvertTo-Json -Compress) -ContentType "application/json"
-    return ($Response.Content | ConvertFrom-Json).choices[0].message.content
+    Show-Result ($Response.Content | ConvertFrom-Json).choices[0].message.content
 }
