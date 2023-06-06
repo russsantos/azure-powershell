@@ -6853,7 +6853,7 @@ to enable create Azure-SSIS IR with static public IP addresses.
         - Add-AzLoadBalancerFrontendIpConfig
         - Set-AzLoadBalancerFrontendIpConfig
 * Application Gateway New-AzApplicationGatewayProbeConfig command update for supporting custom port in Probe
-    - Updated New-AzApplicationGatewayProbeConfig: Added optional parameter Port which is used for probing backend server. This parameter is applicable for Standard_V2 and WAF_V2 SKU.
+    - Updated New-AzApplicationGatewayProbeConfig: Added optional parameter Port which is used for probing backend server. This parameter is applicable for Standard_V2, WAF_V2, and Basic SKU.
 
 #### Az.OperationalInsights
 * Updated default version for saved searches to be 1. 
