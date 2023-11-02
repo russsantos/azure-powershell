@@ -17,12 +17,12 @@ using Microsoft.WindowsAzure.Commands.Common.Attributes;
 
 namespace Microsoft.Azure.Commands.Network.Models
 {
-    public class PSApplicationGatewayGlobalConfiguration : PSChildResource
+    public class PSApplicationGatewayGlobalConfiguration
     {
         [Ps1Xml(Target = ViewControl.Table)]
-        public bool EnableRequestBuffering { get; set; }
+        public bool? EnableRequestBuffering { get; set; }
 
         [Ps1Xml(Target = ViewControl.Table)]
-        public bool EnableResponseBuffering { get; set; }
+        public bool? EnableResponseBuffering { get; set; }
     }
 }

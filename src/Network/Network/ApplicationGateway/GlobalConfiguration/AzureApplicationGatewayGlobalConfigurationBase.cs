@@ -13,22 +13,17 @@
 // ----------------------------------------------------------------------------------
 
 using Microsoft.Azure.Commands.Network.Models;
-using System;
 using System.Management.Automation;
 
 namespace Microsoft.Azure.Commands.Network
 {
     public class AzureApplicationGatewayGlobalConfigurationBase : NetworkBaseCmdlet
-        {
-        [Parameter(
-            HelpMessage = "EnableRequestBuffering")]
-        [ValidateSet("true", "false", IgnoreCase = true)]
-        public string EnableRequestBuffering { get; set; }
+    {
+        [Parameter(Mandatory = false, HelpMessage = "EnableRequestBuffering")]
+        public bool? EnableRequestBuffering { get; set; }
 
-        [Parameter(
-            HelpMessage = "EnableResponseBuffering")]
-        [ValidateSet("true", "false", IgnoreCase = true)]
-        public string EnableResponseBuffering { get; set; }
+        [Parameter(Mandatory = false, HelpMessage = "EnableResponseBuffering")]
+        public bool? EnableResponseBuffering { get; set; }
 
         public override void ExecuteCmdlet()
         {
@@ -38,23 +33,15 @@ namespace Microsoft.Azure.Commands.Network
         public PSApplicationGatewayGlobalConfiguration NewObject()
         {
             var globalConfiguration = new PSApplicationGatewayGlobalConfiguration();
-            
-            if (string.IsNullOrEmpty(this.EnableRequestBuffering) || string.Equals(this.EnableRequestBuffering, "true", StringComparison.OrdinalIgnoreCase))
+
+            if (this.EnableRequestBuffering != null)
             {
-                globalConfiguration.EnableRequestBuffering = true;
-            }
-            else if (string.Equals(this.EnableRequestBuffering, "false", StringComparison.OrdinalIgnoreCase))
-            {
-                globalConfiguration.EnableRequestBuffering = false;
+               globalConfiguration.EnableRequestBuffering = this.EnableRequestBuffering;
             }
 
-            if (string.IsNullOrEmpty(this.EnableResponseBuffering) || string.Equals(this.EnableResponseBuffering, "true", StringComparison.OrdinalIgnoreCase))
+            if (this.EnableResponseBuffering != null)
             {
-                globalConfiguration.EnableResponseBuffering = true;
-            }
-            else if (string.Equals(this.EnableResponseBuffering, "false", StringComparison.OrdinalIgnoreCase))
-            {
-                globalConfiguration.EnableResponseBuffering = false;
+                globalConfiguration.EnableResponseBuffering = this.EnableResponseBuffering;
             }
 
             return globalConfiguration;

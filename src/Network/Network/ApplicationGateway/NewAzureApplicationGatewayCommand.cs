@@ -188,6 +188,12 @@ namespace Microsoft.Azure.Commands.Network
         public virtual PSApplicationGatewayWebApplicationFirewallConfiguration WebApplicationFirewallConfiguration { get; set; }
 
         [Parameter(
+            Mandatory = false,
+            ValueFromPipelineByPropertyName = true,
+            HelpMessage = "Global Configuration")]
+        public PSApplicationGatewayGlobalConfiguration GlobalConfiguration { get; set; }
+
+        [Parameter(
             ParameterSetName = "SetByResourceId",
             HelpMessage = "FirewallPolicyId")]
         public string FirewallPolicyId { get; set; }
@@ -399,6 +405,11 @@ namespace Microsoft.Azure.Commands.Network
             if (this.WebApplicationFirewallConfiguration != null)
             {
                 applicationGateway.WebApplicationFirewallConfiguration = this.WebApplicationFirewallConfiguration;
+            }
+
+            if (this.GlobalConfiguration != null)
+            {
+                applicationGateway.GlobalConfiguration = this.GlobalConfiguration;
             }
 
             if (!string.IsNullOrEmpty(this.FirewallPolicyId))

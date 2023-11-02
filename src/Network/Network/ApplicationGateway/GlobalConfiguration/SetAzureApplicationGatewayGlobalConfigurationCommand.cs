@@ -29,7 +29,7 @@ namespace Microsoft.Azure.Commands.Network
         public override void ExecuteCmdlet()
         {
             base.ExecuteCmdlet();
-            this.ApplicationGateway.GlobalConfiguration = this.NewObject();
+            this.ApplicationGateway.GlobalConfiguration = base.NewObject();
             WriteObject(this.ApplicationGateway);
         }
     }
